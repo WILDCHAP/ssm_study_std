@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置数据库连接，交给spring去做-->
+    
+    <!--这里只要取别名和映射mapper-->
+    <typeAliases>
+        <package name="com.wildchap.pojo"/>
+    </typeAliases>
+    
+    <mappers>
+        <mapper class="com.wildchap.mapper.BookMapper"/>
+    </mappers>
+
+</configuration>
