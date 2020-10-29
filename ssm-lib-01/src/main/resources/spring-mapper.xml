@@ -7,9 +7,9 @@
 
     <!--托管好数据库配置-->
     <context:property-placeholder location="classpath:db.properties"/>
+
     <!--连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${jdbc.driver"/>
         <property name="driverClass" value="${jdbc.driver}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.username}"/>
@@ -33,7 +33,7 @@
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
-    <!--配置spring自动扫面包-->
+    <!--配置spring自动扫描包（自动将mapper实例化）-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="com.wildchap.mapper"/>
