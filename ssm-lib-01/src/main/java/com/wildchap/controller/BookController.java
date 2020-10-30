@@ -28,12 +28,13 @@ public class BookController {
     }
 
     //跳转到增加书籍页面
-    @RequestMapping("/addBook")
+    @RequestMapping("/toAddBook")
     public String toAddPage(){
         return "addPage";
     }
 
     //添加书籍请求
+    @RequestMapping("/addBook")
     public String addBook(Books books){
         System.out.println("addBook=>" + books);
         bookService.addBook(books);
