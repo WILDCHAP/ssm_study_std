@@ -25,8 +25,15 @@
         <div class="row">
             <div class="col-md-4 column">
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
+                <form action="${pageContext.request.contextPath}/book/queryBook" method="">
+                    <div class="form-group">
+                        <input type="text" name="bookID" class="form-control" required/>
+                        <button type="submit" class="form-control">查询书籍</button>
+                    </div>
+                </form>
             </div>
         </div>
+
 
     </div>
 
@@ -55,7 +62,7 @@
                             <td>
                                 <a href="${pageContext.request.contextPath}/book/toUpdataBook/${book.bookID}">修改</a>
                                 &nbsp; | &nbsp;
-                                <a href="">删除</a>
+                                <a href="${pageContext.request.contextPath}/book/deleteBook/${book.bookID}">删除</a>
                             </td>
                         </tr>
                     </c:forEach>

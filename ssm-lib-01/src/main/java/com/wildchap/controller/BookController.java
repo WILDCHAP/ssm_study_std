@@ -1,6 +1,7 @@
 package com.wildchap.controller;
 
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import com.wildchap.pojo.Books;
 import com.wildchap.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +44,21 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+//    //跳转到修改书籍页面
+//    @RequestMapping("/toUpdataBook")
+//    public String toUpdataPage(int id, Model model){
+//        //修改数据要携带id数据
+//        Books books = bookService.queryBookById(id);
+//        model.addAttribute("books", books);
+//        return "updataPage";
+//    }
+
     //跳转到修改书籍页面
-    @RequestMapping("/toUpdataBook/{bookID}")
-    public String toUpdataPage(@PathVariable int bookID, Model model){
+    @RequestMapping("/toUpdataBook/{id}")
+    public String toUpdataPage(@PathVariable int id, Model model){
         //修改数据要携带id数据
-        model.addAttribute("id", bookID);
+        Books books = bookService.queryBookById(id);
+        model.addAttribute("books", books);
         return "updataPage";
     }
 
@@ -55,9 +66,34 @@ public class BookController {
     @RequestMapping("/updataBook")
     public String updataBook(Books books){
         System.out.println("updataBook=>" + books);
-        bookService.updataBook(books);
+        int i = bookService.updataBook(books);
+        if(i > 0){
+            System.out.println("修改成功");
+        }else{
+            System.out.println("修改失败");
+        }
         //再次回到首页的时候，首页内容变了，所以要用重定向
         return "redirect:/book/allBook";
+    }
+
+    //直接删除页面(不跳转到新的页面)
+    @RequestMapping("/deleteBook/{id}")
+    public String toDeletePage(@PathVariable int id, Model model){
+        int i = bookService.delteBookById(id);
+        if(i > 0){
+            System.out.println("删除成功");
+        }else{
+            System.out.println("删除失败");
+        }
+        return "redirect:/book/allBook";
+    }
+
+    //查询书籍
+    @RequestMapping("/queryBook")
+    public String queryBookById(int bookID, Model model){
+        Books books = bookService.queryBookById(bookID);
+        model.addAttribute("books", books);
+        return "queryPage";
     }
 
 }

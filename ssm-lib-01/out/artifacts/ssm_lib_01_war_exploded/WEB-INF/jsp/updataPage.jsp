@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: 99370
@@ -37,15 +38,16 @@
 
     <form action="${pageContext.request.contextPath}/book/updataBook" method="">
         <div class="form-group">
+            <input type="hidden" name="bookID" value="${books.bookID}">
             <label for="bkname">书籍名称</label>
-            <input type="text" name="bookName" class="form-control" id="bkname" required>
+            <input type="text" name="bookName" class="form-control" id="bkname" required value="${books.bookName}">
             <label for="bkcount">书籍数量</label>
-            <input type="text" name="bookCounts" class="form-control" id="bkcount" required>
+            <input type="text" name="bookCounts" class="form-control" id="bkcount" required value="${books.bookCounts}">
             <label for="bkdetail">书籍描述</label>
-            <input type="text" name="detail" class="form-control" id="bkdetail" required>
+            <input type="text" name="detail" class="form-control" id="bkdetail" required value="${books.detail}">
         </div>
         <div class="form-group">
-            <button type="submit" class="form-control">添加</button>
+            <button type="submit" class="form-control">修改</button>
         </div>
     </form>
 

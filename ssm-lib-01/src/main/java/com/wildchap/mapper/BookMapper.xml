@@ -21,7 +21,7 @@
     <update id="updataBook" parameterType="Books">
         update books
         set bookName = #{bookName},bookCounts = #{bookCounts},detail = #{detail}
-        where bookID = #{id}
+        where bookID = #{bookID}
     </update>
 
     <!--查询一本书-->
