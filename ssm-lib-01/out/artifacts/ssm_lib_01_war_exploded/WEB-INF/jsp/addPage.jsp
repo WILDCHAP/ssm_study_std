@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="col-md-4 column">
-                <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/addBook">新增书籍</a>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
             </div>
         </div>
 
@@ -28,14 +28,14 @@
 
 
 
-    <form action="" method="">
+    <form action="${pageContext.request.contextPath}/book/addBook" method="">
         <div class="form-group">
             <label for="bkname">书籍名称</label>
-            <input type="text" class="form-control" id="bkname">
+            <input type="text" name="bookName" class="form-control" id="bkname" required>
             <label for="bkcount">书籍数量</label>
-            <input type="text" class="form-control" id="bkcount">
+            <input type="text" name="bookCounts" class="form-control" id="bkcount" required>
             <label for="bkdetail">书籍描述</label>
-            <input type="text" class="form-control" id="bkdetail">
+            <input type="text" name="detail" class="form-control" id="bkdetail" required>
         </div>
         <div class="form-group">
             <button type="submit" class="form-control">添加</button>

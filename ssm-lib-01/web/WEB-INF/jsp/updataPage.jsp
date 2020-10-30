@@ -1,7 +1,14 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 99370
+  Date: 2020/10/30
+  Time: 11:29
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>新增书籍页面</title>
+    <title>修改书籍页面</title>
     <!--导入bootstrap cdn-->
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -28,7 +35,7 @@
 
 
 
-    <form action="${pageContext.request.contextPath}/book/addBook" method="">
+    <form action="${pageContext.request.contextPath}/book/updataBook" method="">
         <div class="form-group">
             <label for="bkname">书籍名称</label>
             <input type="text" name="bookName" class="form-control" id="bkname" required>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -39,7 +40,24 @@ public class BookController {
         System.out.println("addBook=>" + books);
         bookService.addBook(books);
         //再次回到首页的时候，首页内容变了，所以要用重定向
-        return "redirect:/book/allbook";
+        return "redirect:/book/allBook";
+    }
+
+    //跳转到修改书籍页面
+    @RequestMapping("/toUpdataBook/{bookID}")
+    public String toUpdataPage(@PathVariable int bookID, Model model){
+        //修改数据要携带id数据
+        model.addAttribute("id", bookID);
+        return "updataPage";
+    }
+
+    //修改书籍请求
+    @RequestMapping("/updataBook")
+    public String updataBook(Books books){
+        System.out.println("updataBook=>" + books);
+        bookService.updataBook(books);
+        //再次回到首页的时候，首页内容变了，所以要用重定向
+        return "redirect:/book/allBook";
     }
 
 }
