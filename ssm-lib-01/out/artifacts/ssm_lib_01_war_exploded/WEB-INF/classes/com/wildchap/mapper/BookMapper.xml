@@ -29,6 +29,13 @@
         select * from books where bookID = #{id}
     </select>
 
+    <!--查询多本书(Name/Details)-->
+    <select id="queryBookByNameAndDetail" resultType="Books">
+        select * from books
+--         where bookName like "%#{info}%" or detail like "%#{info}%"
+        where bookName = #{info}
+    </select>
+    
     <!--查询所有书-->
     <select id="queryAllBook" resultType="Books">
         select * from books

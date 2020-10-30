@@ -88,7 +88,7 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
-    //查询书籍
+    //查询书籍(ID)
     @RequestMapping("/queryBook")
     public String queryBookById(int bookID, Model model){
         Books books = bookService.queryBookById(bookID);
@@ -96,4 +96,11 @@ public class BookController {
         return "queryPage";
     }
 
+    //查询书籍(Name和Detail)
+    @RequestMapping("/queryBook2")
+    public String queryBookByNameAndDetail(String info, Model model){
+        List<Books> books = bookService.queryBookByNameAndDetail(info);
+        model.addAttribute("list", books);
+        return "queryPage2";
+    }
 }

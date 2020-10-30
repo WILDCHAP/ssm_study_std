@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-4 column">
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
-                <form action="${pageContext.request.contextPath}/book/queryBook" method="">
+                <form action="${pageContext.request.contextPath}/book/queryBook" method="post">
                     <div class="form-group">
                         <input type="text" name="bookID" class="form-control" required/>
                         <button type="submit" class="form-control">查询书籍</button>
@@ -56,19 +56,17 @@
                 </thead>
                 <%--书籍从数据库中查询出来--%>
                 <tbody>
-                <c:forEach var="book" items="${books}">
                     <tr>
-                        <td>${book.bookID}</td>
-                        <td>${book.bookName}</td>
-                        <td>${book.bookCounts}</td>
-                        <td>${book.detail}</td>
+                        <td>${books.bookID}</td>
+                        <td>${books.bookName}</td>
+                        <td>${books.bookCounts}</td>
+                        <td>${books.detail}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdataBook/${book.bookID}">修改</a>
+                            <a href="${pageContext.request.contextPath}/book/toUpdataBook/${books.bookID}">修改</a>
                             &nbsp; | &nbsp;
-                            <a href="${pageContext.request.contextPath}/book/deleteBook/${book.bookID}">删除</a>
+                            <a href="${pageContext.request.contextPath}/book/deleteBook/${books.bookID}">删除</a>
                         </td>
                     </tr>
-                </c:forEach>
                 </tbody>
             </table>
         </div>

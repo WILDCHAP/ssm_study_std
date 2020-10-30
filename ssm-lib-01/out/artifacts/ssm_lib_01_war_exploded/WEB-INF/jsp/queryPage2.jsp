@@ -2,13 +2,13 @@
   Created by IntelliJ IDEA.
   User: 99370
   Date: 2020/10/30
-  Time: 16:04
+  Time: 16:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查询详情页</title>
+    <title>查询书籍页面</title>
     <!--导入bootstrap cdn-->
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -56,23 +56,24 @@
                 </thead>
                 <%--书籍从数据库中查询出来--%>
                 <tbody>
+                <c:forEach var="book" items="${list}">
                     <tr>
-                        <td>${books.bookID}</td>
-                        <td>${books.bookName}</td>
-                        <td>${books.bookCounts}</td>
-                        <td>${books.detail}</td>
+                        <td>${book.bookID}</td>
+                        <td>${book.bookName}</td>
+                        <td>${book.bookCounts}</td>
+                        <td>${book.detail}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdataBook/${books.bookID}">修改</a>
+                            <a href="${pageContext.request.contextPath}/book/toUpdataBook/${book.bookID}">修改</a>
                             &nbsp; | &nbsp;
-                            <a href="${pageContext.request.contextPath}/book/deleteBook/${books.bookID}">删除</a>
+                            <a href="${pageContext.request.contextPath}/book/deleteBook/${book.bookID}">删除</a>
                         </td>
                     </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

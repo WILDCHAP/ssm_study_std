@@ -14,6 +14,8 @@ public interface BookService {
     int updataBook(Books books);
     //查询一本书
     Books queryBookById(int id);
+    //查询多本书(Name/Details)
+    List<Books> queryBookByNameAndDetail(String info);
     //查询全部书
     List<Books> queryAllBook();
 }
