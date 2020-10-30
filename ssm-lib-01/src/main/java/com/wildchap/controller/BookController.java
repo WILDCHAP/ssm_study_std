@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -99,7 +100,12 @@ public class BookController {
     //查询书籍(Name和Detail)
     @RequestMapping("/queryBook2")
     public String queryBookByNameAndDetail(String info, Model model){
-        List<Books> books = bookService.queryBookByNameAndDetail(info);
+        System.out.println(info);
+        Books book = bookService.queryBookByNameAndDetail(info);
+        System.out.println(book);
+        List<Books> books = new ArrayList<Books>();
+        books.add(book);
+        System.out.println(books);
         model.addAttribute("list", books);
         return "queryPage2";
     }

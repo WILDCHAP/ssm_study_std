@@ -25,9 +25,9 @@
         <div class="row">
             <div class="col-md-4 column">
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
-                <form action="${pageContext.request.contextPath}/book/queryBook" method="post">
+                <form action="${pageContext.request.contextPath}/book/queryBook2" method="post">
                     <div class="form-group">
-                        <input type="text" name="bookID" class="form-control" required/>
+                        <input type="text" name="info" class="form-control" required/>
                         <button type="submit" class="form-control">查询书籍</button>
                     </div>
                 </form>
