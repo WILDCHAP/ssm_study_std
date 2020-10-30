@@ -21,33 +21,41 @@
                 </h1>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-4 column">
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/addBook">新增书籍</a>
+            </div>
+        </div>
+
     </div>
-</div>
 
 
-<div class="row clearfix">
-    <div class="col-md-12 column">
-        <table class="table table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>书籍编号</th>
-                    <th>书籍名称</th>
-                    <th>书记数量</th>
-                    <th>书籍详情</th>
-                </tr>
-            </thead>
-            <%--书籍从数据库中查询出来--%>
-            <tbody>
-                <c:forEach var="book" items="${list}">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
                     <tr>
-                        <td>${book.bookID}</td>
-                        <td>${book.bookName}</td>
-                        <td>${book.bookCounts}</td>
-                        <td>${book.detail}</td>
+                        <th>书籍编号</th>
+                        <th>书籍名称</th>
+                        <th>书记数量</th>
+                        <th>书籍详情</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <%--书籍从数据库中查询出来--%>
+                <tbody>
+                    <c:forEach var="book" items="${list}">
+                        <tr>
+                            <td>${book.bookID}</td>
+                            <td>${book.bookName}</td>
+                            <td>${book.bookCounts}</td>
+                            <td>${book.detail}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

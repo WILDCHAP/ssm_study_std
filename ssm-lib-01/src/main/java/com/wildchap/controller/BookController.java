@@ -19,12 +19,26 @@ public class BookController {
     @Qualifier("BookServiceImpl")
     private BookService bookService;
 
-    //查询全部书
+    //查询全部书，并返回到一个书籍展示页面
     @RequestMapping("/allBook")
     public String list(Model model){
         List<Books> books = bookService.queryAllBook();
         model.addAttribute("list", books);
         return "allBook";
+    }
+
+    //跳转到增加书籍页面
+    @RequestMapping("/addBook")
+    public String toAddPage(){
+        return "addPage";
+    }
+
+    //添加书籍请求
+    public String addBook(Books books){
+        System.out.println("addBook=>" + books);
+        bookService.addBook(books);
+        //再次回到首页的时候，首页内容变了，所以要用重定向
+        return "redirect:/book/allbook";
     }
 
 }
