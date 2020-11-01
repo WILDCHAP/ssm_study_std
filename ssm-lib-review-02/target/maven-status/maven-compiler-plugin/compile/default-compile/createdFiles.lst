@@ -1,1 +1,5 @@
+com\wildchap\controller\BookControl.class
+com\wildchap\mapper\BookMapper.class
+com\wildchap\service\BookServiceImpl.class
 com\wildchap\pojo\Books.class
+com\wildchap\service\BookService.class
